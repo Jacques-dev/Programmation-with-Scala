@@ -23,16 +23,41 @@ case class CoffeeMachine(model:String) extends ElectricalGood(){}
 
 // Exo sur la carte bancaire
 
-sealed abstract class BrandingName() {}
+sealed abstract class BrandingName{}
+case object Amex extends brandingName{}
+case object Visa extends brandingName{}
+case object Mastercard extends brandingName{}
 
-case object Amex extends BrandingName() {
-  object Digits {
-    def unapply(s: String, l: Int): Option[Int] {
-      if (s.length() == l) {
-        util.try {s.toInt}.toOption
-      } else {
-        None
+//Custom extractor string, check length and all int at the same time
+object DigitsLength { 
+  def unapply(s: String, l: Int): Option[Int] = {
+      if(s.length() == l){
+          util.Try(s.toInt).toOption 
+      }else{
+          None
       }
-    }
-  }
+  } 
 }
+
+
+class CVC( numbers : String, branding: brandingName){
+}
+object CVC{
+	def apply(numbers: String): Option[CVC] = (numbers, branding) match {
+        case (DigitsLength(i, 4), branding: Amex)   => Some(i)
+        case (DigitsLength(i, 3),branding: Mastercar ) =>  Some(i)
+        case (DigitsLength(i, 3), branding: Visa) =>  Some(i)
+        case _ => None
+    }
+}
+
+class cardNumber( numbers : String, branding: brandingName){
+}
+object cardNumber{
+	def apply(numbers: String): Option[cardNumber] = numbers match {
+        case DigitsLength(i, 16) => Some(i)
+        case _ => None
+    }
+}
+
+case class CreditCard(brand: BrandingName, numbers: cardNumber, expirationMonth: Month, expirationYear: Year, cvc: CVC){}
