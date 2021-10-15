@@ -20,3 +20,19 @@ case class Bike(model:String) extends Vehicule(){}
 
 abstract class ElectricalGood() extends Peugeot(){}
 case class CoffeeMachine(model:String) extends ElectricalGood(){}
+
+// Exo sur la carte bancaire
+
+sealed abstract class BrandingName() {}
+
+case object Amex extends BrandingName() {
+  object Digits {
+    def unapply(s: String, l: Int): Option[Int] {
+      if (s.length() == l) {
+        util.try {s.toInt}.toOption
+      } else {
+        None
+      }
+    }
+  }
+}
