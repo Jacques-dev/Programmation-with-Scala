@@ -1,0 +1,18 @@
+[0m[[0m[31merror[0m] [0m[0mD:\Documents\Etude\EFREI\L3\S7\Programmation-with-Scala\TP_MR\src\main\scala\TP_MR.scala:1:8: object MapView is not a member of package collection[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.collection.MapView[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Documents\Etude\EFREI\L3\S7\Programmation-with-Scala\TP_MR\src\main\scala\TP_MR.scala:182:13: value mapValues is not a member of scala.collection.IterableView[(String, Iterable[(String, Double)]),scala.collection.immutable.Map[String,Iterable[(String, Double)]]][0m
+[0m[[0m[31merror[0m] [0m[0m      .view.mapValues(row => row.map { case (departement, rating) => rating }).toMap[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Documents\Etude\EFREI\L3\S7\Programmation-with-Scala\TP_MR\src\main\scala\TP_MR.scala:268:96: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.Iterable.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,String,Iterable[String]][0m
+[0m[[0m[31merror[0m] [0m[0m    val partitions: Map[String, Iterable[Double]] = getRatingsByDepartement(file.getLines().to(Iterable))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Documents\Etude\EFREI\L3\S7\Programmation-with-Scala\TP_MR\src\main\scala\TP_MR.scala:275:35: not found: type MapView[0m
+[0m[[0m[31merror[0m] [0m[0m    val partitionedRatingWithOne: MapView[String, Iterable[(Double, Int)]] =[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Documents\Etude\EFREI\L3\S7\Programmation-with-Scala\TP_MR\src\main\scala\TP_MR.scala:279:40: not found: type MapView[0m
+[0m[[0m[31merror[0m] [0m[0m    val partitionedSumRatingsAndCount: MapView[String, (Double, Int)] =[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
